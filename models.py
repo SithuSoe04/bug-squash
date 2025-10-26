@@ -13,7 +13,6 @@ class Customer:
         if amount < 0:
             raise ValueError("Amount must be positive")
 
-        # BUG: Missing balance check before charging
         self.balance -= amount
         print(f"[Customer] Charged {amount} from {self.email}, new balance: {self.balance}")
 
@@ -23,14 +22,12 @@ class Payment:
     customer_id: int
     amount: float
     status: str = "pending"
-    created_at: datetime = datetime.now()  # BUG: datetime.now() shared across instances
+    created_at: datetime = datetime.now() 
 
     def mark_completed(self):
-        # BUG: Should check if status already completed
         self.status = "complete"
 
     def refund(self):
-        # BUG: Logic reversed — refund should mark refunded, not complete
         if self.status == "refunded":
             raise ValueError("Already refunded")
         self.status = "complete"

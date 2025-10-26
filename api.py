@@ -13,7 +13,7 @@ PAYMENTS = {}
 
 def post_payment(data: dict):
     customer_id = data.get("customer")
-    amount = data.get("amt")  # BUG: Wrong key name; should be "amount"
+    amount = data.get("amt")  
     customer = CUSTOMERS.get(customer_id)
 
     if not customer:
@@ -31,7 +31,6 @@ def post_refund(data: dict):
     if not payment:
         return {"error": "Payment not found"}
 
-    # BUG: Customer ID mismatch logic
-    customer = CUSTOMERS[payment.id]  # wrong key, should use payment.customer_id
+    customer = CUSTOMERS[payment.id] 
     refund_payment(payment, customer)
     return {"id": payment.id, "status": payment.status}
