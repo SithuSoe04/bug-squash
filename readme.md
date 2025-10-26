@@ -1,12 +1,3 @@
-# Stripe Bug Squash Interview Simulator 🐞
-
-Welcome to your **bug squash practice project** — inspired by Stripe’s real engineering interview format.
-
-In this exercise, you’ll debug and fix a minimal payment system.  
-The codebase intentionally contains **realistic production-style bugs** across modules.
-
----
-
 ## 🧩 Goal
 
 Your mission is to make **all tests pass** ✅ by identifying and fixing bugs in:
